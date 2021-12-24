@@ -9,14 +9,14 @@ const cross = `<svg viewBox="0 0 32 32"><defs><style>.cls-1{fill:none;stroke:#DD
 let queue = true
 
 function addCircle(target) {
-    if (!(target.tagName === 'svg')) {
+    if (!((target.tagName === 'svg')||(target.tagName === 'line')||(target.tagName === 'path'))) {
         target.innerHTML = circle
         target.classList.add('circle')   
         queue = true 
     }
 }
 function addCross(target) {
-    if (!(target.tagName === 'svg')) {
+    if (!((target.tagName === 'svg')||(target.tagName === 'line')||(target.tagName === 'path'))) {
         target.innerHTML = cross
         target.classList.add('cross')   
         queue = false
@@ -27,9 +27,12 @@ squares.forEach((square) => {
     square.addEventListener('click', event => {
         
         if (!queue) {
+            
             addCircle(event.target)
+            console.log(event.target.tagName)
         } else {
             addCross(event.target)
+            console.log(event.target.tagName)
         }
         proverka()
         
