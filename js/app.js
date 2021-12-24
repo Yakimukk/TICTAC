@@ -28,12 +28,8 @@ squares.forEach((square) => {
         
         if (!queue) {
             addCircle(event.target)
-            
-            console.log('true')
         } else {
             addCross(event.target)
-            
-            console.log('false')
         }
         proverka()
         
