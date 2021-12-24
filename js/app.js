@@ -11,13 +11,15 @@ let queue = true
 function addCircle(target) {
     if (!(target.tagName === 'svg')) {
         target.innerHTML = circle
-        target.classList.add('circle')    
+        target.classList.add('circle')   
+        queue = true 
     }
 }
 function addCross(target) {
     if (!(target.tagName === 'svg')) {
         target.innerHTML = cross
         target.classList.add('cross')   
+        queue = false
     }
 }
 
@@ -26,11 +28,11 @@ squares.forEach((square) => {
         
         if (!queue) {
             addCircle(event.target)
-            queue = true
+            
             console.log('true')
         } else {
             addCross(event.target)
-            queue = false
+            
             console.log('false')
         }
         proverka()
